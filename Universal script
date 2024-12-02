@@ -147,6 +147,12 @@ Tab:AddButton({
       		dam = false
   	end    
 })
+--luck block
+local Tab = Window:MakeTab({
+	Name = "luck block",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 Tab:AddButton({
 	Name = "Pegar arma",
 	Callback = function()
