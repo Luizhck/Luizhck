@@ -1,7 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "animal simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
-	Name = "script do Luiz",
+	Name = "animal simulator",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -146,4 +146,10 @@ Tab:AddButton({
 	Callback = function()
       		dam = false
   	end    
+})
+Tab:AddButton({
+	Name = "Pegar arma",
+	Callback = function()
+      	game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+end
 })
