@@ -32,13 +32,39 @@ local Tab = Window:CreateTab("animal simulator", "rewind")
 local Button = Tab:CreateButton({
    Name = "farm",
    Callback = function()
-   while true do
-    wait(0.0)
-     game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
- end
+coin = true
  while true do
  wait(0.0)
+ if coin == true then
  game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+end
+end
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Hitbox",
+   Callback = function()
+   local hit = workspace.dom_gi.combatHandler.HitBox
+hit.Value = Vector3.new(300, 300, 300)  
+hit.Transparency = 0.5  
+hit.CanCollide = false
+hit.CanTouch = true
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "farm",
+   Callback = function()
+   while true do
+    wait(0.1)
+    local npcNames = {"BOSSBEAR", "Griffin"}
+    
+    for _, name in ipairs(npcNames) do
+        local npc = workspace.NPC:FindFirstChild(name)
+        if npc and npc:FindFirstChild("Humanoid") then
+            -- Envia um por um, mas quase ao mesmo tempo
+            game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(npc.Humanoid)
+        end
+    end
 end
    end,
 })
@@ -53,5 +79,11 @@ local Button = Tab:CreateButton({
    Name = "Namelles",
    Callback = function()
    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Nameless-Admin-23304"))()
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Dex Explorer",
+   Callback = function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-Explorer-for-Mobile-32019"))()
    end,
 })
